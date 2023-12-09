@@ -14,12 +14,11 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/3b5942a5-d95d-4531-b1c9-e4767e05ca6a";
+    { device = "/dev/disk/by-uuid/022920cf-e004-4cab-aaf5-9d67a6db7f69";
       fsType = "btrfs";
       options = [ "subvol=root" "compress=zstd" "noatime" ];
     };
 
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
   boot.initrd.luks.devices = {
       cryptdata = {
         device = "/dev/disk/by-uuid/7f5950c6-599d-48c4-857e-293203435281";
@@ -32,32 +31,32 @@
   };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/3b5942a5-d95d-4531-b1c9-e4767e05ca6a";
+    { device = "/dev/disk/by-uuid/022920cf-e004-4cab-aaf5-9d67a6db7f69";
       fsType = "btrfs";
       options = [ "subvol=home" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/3b5942a5-d95d-4531-b1c9-e4767e05ca6a";
+    { device = "/dev/disk/by-uuid/022920cf-e004-4cab-aaf5-9d67a6db7f69";
       fsType = "btrfs";
       options = [ "subvol=nix" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/persist" =
-    { device = "/dev/disk/by-uuid/3b5942a5-d95d-4531-b1c9-e4767e05ca6a";
+    { device = "/dev/disk/by-uuid/022920cf-e004-4cab-aaf5-9d67a6db7f69";
       fsType = "btrfs";
       options = [ "subvol=persist" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/var/log" =
-    { device = "/dev/disk/by-uuid/3b5942a5-d95d-4531-b1c9-e4767e05ca6a";
+    { device = "/dev/disk/by-uuid/022920cf-e004-4cab-aaf5-9d67a6db7f69";
       fsType = "btrfs";
       options = [ "subvol=log" "compress=zstd" "noatime" ];
       neededForBoot = true;
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/2926-330E";
+    { device = "/dev/disk/by-uuid/F788-8C94";
       fsType = "vfat";
     };
 
