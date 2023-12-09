@@ -76,6 +76,13 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   
+  # set up some basic system packages so I can get to a graphical system
+  environment.systemPackages = with pkgs; [
+        neovim
+        git
+        htop
+  ];
+
 
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {
