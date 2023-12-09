@@ -19,6 +19,18 @@
       options = [ "subvol=root" "compress=zstd" "noatime" ];
     };
 
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  boot.initrd.luks.devices = {
+      cryptdata = {
+        device = "/dev/disk/by-uuid/7f5950c6-599d-48c4-857e-293203435281";
+        preLVM = true;
+      };
+     cryptswap = {
+	device = "/dev/disk/by-uuid/68017ed2-6f79-4d85-b91c-acea75124049";
+	preLVM = true;
+     };
+  };
+
   fileSystems."/home" =
     { device = "/dev/disk/by-uuid/3b5942a5-d95d-4531-b1c9-e4767e05ca6a";
       fsType = "btrfs";
