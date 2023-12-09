@@ -81,13 +81,19 @@
         neovim
         git
         htop
+	python3
+	lua
   ];
 
+  # make zsh available as login shell
+  packages.zsh.enable = true;
 
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {
     paul = {
       isNormalUser = true;
+      shell = pkgs.zsh;
+
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
