@@ -82,6 +82,7 @@
         git
         htop
 	python3
+	python311Packages.dbus-python
 	lua
 	ruby
   ];
