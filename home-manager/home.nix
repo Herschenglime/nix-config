@@ -26,8 +26,24 @@ let
 
     #desktop applications
     spotify-qt
-    emacs29
     firefox
+
+
+    emacs29
+    #extra emacs dependencies, based on doctor output
+    ripgrep
+    fd
+    aspell
+    gnumake
+    cmake
+    pandoc
+    wl-clipboard
+    scrot
+    shfmt
+    html-tidy
+    stylelint
+    nodePackages.js-beautify
+
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

@@ -67,20 +67,43 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # from default configuration.nix
 
+  
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  services.xserver = {
+	enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+	# Enable the GNOME Desktop Environment.
+	displayManager.gdm.enable = true;
+	desktopManager.gnome.enable = true;   
+
+        # set up trackball direction reversal
+        libinput.enable = true;
+        extraConfig = ''
+          Section "InputClass"
+            Identifier   "Marble Mouse"
+            MatchProduct "Logitech USB Trackball"
+            Driver       "libinput"
+            Option       "ScrollMethod"    "button"
+            Option       "ScrollButton"    "9"
+            Option       "MiddleEmulation" "true"
+            Option       "ButtonMapping"   "3 2 1 4 5 6 7 8 9"
+            Option       "AccelSpeed"   "0.2"
+          EndSection
+        '';
+  };
+
   
   # set up some basic system packages so I can get to a graphical system
   environment.systemPackages = with pkgs; [
+  	#terminal utilities
         neovim
         git
         htop
+	killall
+	trash-cli
+
+	# languages
 	python3
 	python311Packages.dbus-python
 	lua
@@ -118,4 +141,5 @@
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
+  
 }
