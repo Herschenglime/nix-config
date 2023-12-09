@@ -83,6 +83,7 @@
         htop
 	python3
 	lua
+	ruby
   ];
 
   # make zsh available as login shell
